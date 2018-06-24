@@ -1,0 +1,527 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  font-family: "Montserrat";
+  -webkit-font-smoothing: pixel-antialiased; }
+
+body {
+  background-color: black;
+  -webkit-font-smoothing: antialiased; }
+
+html, body, #Wrapper {
+  height: 100%;
+  width: 100%;
+  perspective: 1500px; }
+
+.WrapperPerspective {
+  overflow: hidden;
+  -webkit-font-smoothing: subpixel-antialiased;
+  font-smoothing: subpixel-antialiased;
+  -moz-font-smoothing: antialiased;
+  font-size: 0.5 !important;
+  position: relative;
+  outline-style: solid;
+  outline-color: black;
+  outline-width: 5px;
+  transform: translateZ(-1800px) translateX(-50%) rotateY(45deg);
+  transform-origin: 0% 50%;
+  -webkit-text-size-adjust: 100%; }
+
+#Wrapper {
+  display: grid;
+  background-color: black;
+  grid-template-rows: 1fr 10fr;
+  transition: transform 1s ease-in-out;
+  outline: 10px solid blue; }
+  #Wrapper #mapBG {
+    position: absolute;
+    z-index: -1;
+    height: 100vh;
+    width: 100vw;
+    background-image: url("contact-visual.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0;
+    transition: opacity ease-in-out 0.8s; }
+  #Wrapper #header {
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-areas: "logo . burgerMenu"; }
+    #Wrapper #header #logo {
+      display: grid;
+      grid-area: logo;
+      grid-template-columns: 1fr 1fr; }
+      #Wrapper #header #logo #logoImg {
+        display: grid; }
+        #Wrapper #header #logo #logoImg img {
+          justify-self: right;
+          align-self: center; }
+      #Wrapper #header #logo #logoH {
+        display: grid;
+        color: white;
+        font-family: "Montserrat";
+        font-weight: 900;
+        align-self: center;
+        justify-self: center; }
+    #Wrapper #header #burgerMenu {
+      display: grid;
+      grid-area: burgerMenu;
+      position: relative;
+      cursor: pointer; }
+      #Wrapper #header #burgerMenu #midBar {
+        position: relative;
+        height: 2px;
+        width: 14px;
+        background-color: white;
+        align-self: center;
+        justify-self: center; }
+      #Wrapper #header #burgerMenu #midBar::before {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        content: "";
+        top: -7px;
+        height: 2px;
+        width: 24px;
+        background-color: white;
+        justify-self: center; }
+      #Wrapper #header #burgerMenu #midBar::after {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        content: "";
+        bottom: -7px;
+        height: 2px;
+        width: 24px;
+        background-color: white;
+        justify-self: center; }
+  #Wrapper #body {
+    display: grid;
+    grid-template-columns: 200px 6fr 1fr; }
+    #Wrapper #body #navSlide {
+      position: relative; }
+      #Wrapper #body #navSlide #menuL {
+        position: relative;
+        height: 100%; }
+        #Wrapper #body #navSlide #menuL ul {
+          position: relative;
+          display: grid;
+          grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+          list-style-position: inherit;
+          list-style: disc;
+          color: white;
+          font-size: 16px;
+          transform: translateY(20%);
+          left: 60px;
+          height: 80%;
+          z-index: 100; }
+          #Wrapper #body #navSlide #menuL ul .active div {
+            display: block;
+            position: absolute;
+            font-size: 16px;
+            transform: translateY(3%);
+            color: white;
+            left: -45px;
+            top: 4%; }
+          #Wrapper #body #navSlide #menuL ul .active {
+            color: blue; }
+            #Wrapper #body #navSlide #menuL ul .active span {
+              color: white; }
+          #Wrapper #body #navSlide #menuL ul li {
+            position: relative;
+            font-size: 5pt; }
+            #Wrapper #body #navSlide #menuL ul li span {
+              position: relative;
+              color: #282828;
+              font-size: 12pt;
+              top: 4%;
+              margin-left: 10px;
+              cursor: pointer; }
+            #Wrapper #body #navSlide #menuL ul li div {
+              display: none; }
+      #Wrapper #body #navSlide #slideBar {
+        position: absolute;
+        left: 25%;
+        top: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        height: 80%;
+        width: 2px;
+        background-color: rgba(40, 40, 40, 0.8); }
+    #Wrapper #body .activeContent {
+      display: grid !important;
+      position: relative; }
+    #Wrapper #body #content {
+      display: none;
+      grid-template-rows: 2fr 1fr; }
+      #Wrapper #body #content #contentBanner {
+        background-image: url("new.png");
+        background-size: auto 100%;
+        background-repeat: no-repeat;
+        background-position: bottom right;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 2fr 1fr;
+        grid-template-areas: " bannerSlogan . " " bannerButton . "; }
+        #Wrapper #body #content #contentBanner #bannerSlogan {
+          display: grid;
+          color: white;
+          grid-area: bannerSlogan;
+          align-self: center;
+          justify-self: flex-start;
+          text-align: left;
+          font-size: 52pt; }
+          #Wrapper #body #content #contentBanner #bannerSlogan h1 {
+            font-weight: 900;
+            white-space: nowrap; }
+        #Wrapper #body #content #contentBanner #bannerButton {
+          display: grid;
+          color: white;
+          grid-area: bannerButton;
+          text-align: left;
+          justify-self: flex-start;
+          width: 120px; }
+          #Wrapper #body #content #contentBanner #bannerButton #bannerButtonInner {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 5fr;
+            height: 100%;
+            width: 100%;
+            padding: 5px;
+            margin-top: 30px;
+            height: 30px;
+            cursor: pointer; }
+            #Wrapper #body #content #contentBanner #bannerButton #bannerButtonInner #buttonAreaOne {
+              background-color: blue;
+              width: 0%;
+              right: 0;
+              transform-origin: 100% -50%; }
+            #Wrapper #body #content #contentBanner #bannerButton #bannerButtonInner #buttonAreaTwo {
+              background-color: blue;
+              display: grid; }
+              #Wrapper #body #content #contentBanner #bannerButton #bannerButtonInner #buttonAreaTwo p {
+                position: relative;
+                left: -15px;
+                display: grid;
+                white-space: nowrap;
+                font-weight: 700;
+                justify-self: right;
+                align-self: center;
+                display: inline; }
+                #Wrapper #body #content #contentBanner #bannerButton #bannerButtonInner #buttonAreaTwo p img {
+                  height: 14px;
+                  width: 18px;
+                  margin: 0px 7px; }
+      #Wrapper #body #content #contentRefArt {
+        display: grid; }
+        #Wrapper #body #content #contentRefArt #newsSlider #newSlide {
+          height: 1px;
+          width: 100%;
+          background-color: rgba(210, 210, 210, 0.2); }
+        #Wrapper #body #content #contentRefArt #newsSlider #newSlideBox {
+          position: absolute;
+          height: 5px;
+          width: 30px;
+          background-color: blue;
+          z-index: 100;
+          transform: translateX(80%); }
+        #Wrapper #body #content #contentRefArt #newsBlog ul {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          list-style: none;
+          color: #282828;
+          font-weight: 300; }
+          #Wrapper #body #content #contentRefArt #newsBlog ul li div {
+            cursor: pointer; }
+            #Wrapper #body #content #contentRefArt #newsBlog ul li div h3 {
+              margin-bottom: 15px; }
+            #Wrapper #body #content #contentRefArt #newsBlog ul li div p {
+              font-size: 10pt;
+              line-height: 1.5em; }
+    #Wrapper #body #content2 {
+      display: none;
+      opacity: 0;
+      grid-template-rows: 1fr 5fr;
+      z-index: 101;
+      top: -30px; }
+      #Wrapper #body #content2 #content2Banner {
+        display: grid; }
+        #Wrapper #body #content2 #content2Banner h1 {
+          display: grid;
+          text-align: center;
+          align-self: center;
+          color: white;
+          font-size: 20pt; }
+      #Wrapper #body #content2 #content2SlideShow {
+        display: grid;
+        grid-template-columns: 75px 1fr 2fr 1fr 75px;
+        color: white; }
+        #Wrapper #body #content2 #content2SlideShow .arrow {
+          display: grid;
+          grid-template-rows: 2fr 1fr; }
+          #Wrapper #body #content2 #content2SlideShow .arrow div {
+            align-self: center;
+            height: 50px;
+            width: 50px;
+            border: 2px;
+            border-radius: 50%;
+            background-color: #282828;
+            background-repeat: no-repeat;
+            background-position: center; }
+          #Wrapper #body #content2 #content2SlideShow .arrow .arw.Fwd {
+            background-image: url("arrow.png");
+            justify-self: flex-end;
+            cursor: pointer; }
+          #Wrapper #body #content2 #content2SlideShow .arrow .arw.Bck {
+            background-image: url("arrow.png");
+            justify-self: flex-start;
+            transform: scaleX(-1);
+            cursor: pointer; }
+        #Wrapper #body #content2 #content2SlideShow .slideShow {
+          display: grid;
+          grid-template-rows: 2fr 1fr; }
+          #Wrapper #body #content2 #content2SlideShow .slideShow .slidePic {
+            display: grid;
+            justify-self: center;
+            align-self: center;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 100% auto;
+            border: 2px;
+            border-radius: 50%;
+            height: 150px;
+            width: 150px;
+            cursor: pointer; }
+          #Wrapper #body #content2 #content2SlideShow .slideShow .slideDescrip h1, #Wrapper #body #content2 #content2SlideShow .slideShow .slideDescrip p {
+            text-align: center;
+            margin-top: 15px;
+            line-height: 1.5em; }
+          #Wrapper #body #content2 #content2SlideShow .slideShow .slideDescrip p {
+            font-size: 10pt; }
+          #Wrapper #body #content2 #content2SlideShow .slideShow .slideDescrip.one, #Wrapper #body #content2 #content2SlideShow .slideShow .slideDescrip.three {
+            position: relative;
+            top: -15%; }
+          #Wrapper #body #content2 #content2SlideShow .slideShow .slidePic.one {
+            background-image: url("work-victory.jpg"); }
+          #Wrapper #body #content2 #content2SlideShow .slideShow .slidePic.two {
+            background-image: url("work-metiew-smith.jpg");
+            height: 300px;
+            width: 300px; }
+          #Wrapper #body #content2 #content2SlideShow .slideShow .slidePic.three {
+            background-image: url("work-alex-nowak.jpg"); }
+    #Wrapper #body #content3 {
+      top: -30px;
+      opacity: 0;
+      display: none;
+      background-image: url("about-visual.png");
+      background-position: top right;
+      background-size: auto 100%;
+      background-repeat: no-repeat;
+      grid-template-columns: 1fr 5fr 1fr;
+      grid-template-rows: 2fr 0.3fr 1fr;
+      grid-template-areas: " . aboutHeader . " " . aboutCareer . " " . aboutBottom . "; }
+      #Wrapper #body #content3 #aboutHeader {
+        color: white;
+        display: grid;
+        grid-area: aboutHeader;
+        position: relative;
+        display: inline; }
+        #Wrapper #body #content3 #aboutHeader #afterDot {
+          position: relative;
+          width: 10px;
+          height: 10px;
+          margin-left: 15px;
+          background-color: blue;
+          display: inline-block;
+          bottom: -18px; }
+        #Wrapper #body #content3 #aboutHeader h1::before {
+          content: "";
+          position: absolute;
+          top: -20px;
+          left: 200px;
+          -webkit-transform: rotate(-25deg);
+          transform: rotate(-25deg);
+          border: 5px solid #0f33ff;
+          border-right-color: transparent;
+          border-bottom-color: transparent; }
+        #Wrapper #body #content3 #aboutHeader h1 {
+          position: relative;
+          display: grid;
+          top: 5%;
+          font-weight: 900;
+          font-size: 48pt;
+          display: inline;
+          height: 100%;
+          width: 100%; }
+          #Wrapper #body #content3 #aboutHeader h1 div {
+            position: absolute;
+            right: -70%;
+            content: "";
+            background-color: blue;
+            height: 10px;
+            width: 10px;
+            transform: rotateZ(45deg);
+            top: 15%; }
+          #Wrapper #body #content3 #aboutHeader h1 span {
+            position: relative; }
+          #Wrapper #body #content3 #aboutHeader h1 span::before {
+            content: "";
+            position: absolute;
+            background-color: blue;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            border: 2px solid transparent;
+            border-radius: 50%;
+            transform: translateY(2%) translateX(-50%); }
+      #Wrapper #body #content3 #aboutCareer {
+        grid-area: aboutCareer;
+        display: grid;
+        align-content: center; }
+        #Wrapper #body #content3 #aboutCareer p {
+          display: grid;
+          position: relative;
+          color: white;
+          font-size: 10pt;
+          font-weight: 700;
+          white-space: nowrap;
+          display: inline;
+          margin-top: 10px;
+          cursor: pointer; }
+          #Wrapper #body #content3 #aboutCareer p img {
+            height: 10px;
+            width: 14px;
+            margin: 0px 7px; }
+      #Wrapper #body #content3 #aboutBottom {
+        display: grid;
+        position: relative;
+        grid-area: aboutBottom;
+        grid-template-columns: 1fr 1fr 1fr; }
+        #Wrapper #body #content3 #aboutBottom .aboutBot {
+          position: relative;
+          border: 12px solid #0f33ff;
+          width: 70%;
+          height: 40%;
+          background-size: 100% auto;
+          background-position: center;
+          background-repeat: no-repeat;
+          cursor: pointer; }
+          #Wrapper #body #content3 #aboutBottom .aboutBot h2 {
+            position: absolute;
+            color: white;
+            font-weight: 700;
+            bottom: 0;
+            transform: translateY(110%); }
+        #Wrapper #body #content3 #aboutBottom .win {
+          background-image: url("about-winners.jpg"); }
+        #Wrapper #body #content3 #aboutBottom .phil {
+          background-image: url("about-philosophy.jpg"); }
+        #Wrapper #body #content3 #aboutBottom .history {
+          background-image: url("about-history.jpg");
+          background-position: center top; }
+    #Wrapper #body #content4 {
+      top: -30px;
+      opacity: 0;
+      display: none;
+      position: relative; }
+      #Wrapper #body #content4 #contactsBox {
+        position: relative;
+        display: grid;
+        grid-template-rows: 1fr 2fr;
+        height: 70%;
+        width: 300px;
+        background-color: black;
+        left: 60%;
+        top: 50%;
+        transform: translateY(-50%);
+        box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.75); }
+        #Wrapper #body #content4 #contactsBox #contactAddress p {
+          margin-top: 20px;
+          color: white;
+          font-weight: 700;
+          text-align: center;
+          line-height: 2.5em; }
+        #Wrapper #body #content4 #contactsBox #contactLinks {
+          display: grid;
+          grid-template-rows: 1fr 1fr 1fr; }
+          #Wrapper #body #content4 #contactsBox #contactLinks div {
+            display: grid;
+            cursor: pointer;
+            color: white;
+            text-align: center;
+            justify-self: center;
+            align-self: center;
+            height: 60%;
+            width: 60%; }
+            #Wrapper #body #content4 #contactsBox #contactLinks div h2 {
+              align-self: center; }
+          #Wrapper #body #content4 #contactsBox #contactLinks .contactBehance {
+            background-color: #1769ff; }
+          #Wrapper #body #content4 #contactsBox #contactLinks .contactDribble {
+            position: relative;
+            background-color: #ea4c89;
+            background-image: url("dribble.svg");
+            background-position: center;
+            background-size: 60% auto;
+            background-repeat: no-repeat; }
+          #Wrapper #body #content4 #contactsBox #contactLinks .contactCnUs {
+            background-color: blue; }
+    #Wrapper #body #content5 {
+      display: none;
+      opacity: 0;
+      top: -30px;
+      position: relative;
+      grid-template-rows: 1fr 1fr; }
+      #Wrapper #body #content5 #hireInteractive {
+        display: grid;
+        grid-template-rows: 2fr 3fr;
+        grid-template-columns: 1fr;
+        width: 100%; }
+        #Wrapper #body #content5 #hireInteractive h1 {
+          display: grid;
+          color: white;
+          font-weight: 900;
+          font-size: 20pt;
+          text-align: center;
+          align-self: center; }
+        #Wrapper #body #content5 #hireInteractive #hirePyramid {
+          display: grid;
+          align-self: flex-end;
+          justify-self: center;
+          color: white;
+          list-style: none;
+          grid-template-rows: 1fr 1fr 1fr;
+          width: 100%;
+          height: 100%; }
+          #Wrapper #body #content5 #hireInteractive #hirePyramid .row {
+            display: grid;
+            justify-self: center;
+            align-content: center;
+            grid-column-gap: 30px;
+            width: 100%;
+            text-align: center;
+            font-size: 12pt;
+            font-weight: 900; }
+            #Wrapper #body #content5 #hireInteractive #hirePyramid .row div {
+              padding: 15px;
+              border: 2px solid white;
+              width: 200px;
+              justify-self: center; }
+          #Wrapper #body #content5 #hireInteractive #hirePyramid .firstRow {
+            grid-template-columns: 1fr 1fr 1fr; }
+            #Wrapper #body #content5 #hireInteractive #hirePyramid .firstRow .fstrw.one {
+              justify-self: flex-end; }
+            #Wrapper #body #content5 #hireInteractive #hirePyramid .firstRow .fstrw.two {
+              justify-self: flex-start; }
+          #Wrapper #body #content5 #hireInteractive #hirePyramid .scndRow {
+            grid-template-columns: 1fr 1fr; }
+            #Wrapper #body #content5 #hireInteractive #hirePyramid .scndRow .scnrw.one {
+              justify-self: flex-end; }
+            #Wrapper #body #content5 #hireInteractive #hirePyramid .scndRow .scnrw.two {
+              justify-self: flex-start; }
+
+@-moz-document url-prefix() {
+  #menuL ul {
+    left: 55px !important; } }
+
+/*# sourceMappingURL=style.css.map */
