@@ -8,6 +8,19 @@
 </head>
 <body>
 
+	<div id="navigationPerspectiveMenu">
+		
+		<ul id="perspectiveUl" class="perspectiveUlBefore">
+
+			<li class="perspectiveNav pageOne">Home</li>
+			<li class="perspectiveNav pageTwo">Works</li>
+			<li class="perspectiveNav pageThree">About</li>
+			<li class="perspectiveNav pageFour">Contact</li>
+			<li class="perspectiveNav pageFive">Hire us</li>
+
+		</ul>
+
+	</div>
 
 	<div id="Wrapper">
 
@@ -39,11 +52,11 @@
 				<div id="menuL">
 						
 					<ul id="navMenuUl">
-						<li class="active"><div>01</div><span class="pageTag" id="pageOne">Home</span></li>
-						<li><div>02</div><span class="pageTag" id="pageTwo">02</span></li>
-						<li><div>03</div><span class="pageTag" id="pageThree">03</span></li>
-						<li><div>04</div><span class="pageTag" id="pageFour">04</span></li>
-						<li><div>05</div><span class="pageTag" id="pageFive">05</span></li>
+						<li class="active"><div>01</div><span class="pageTag pageOne">Home</span></li>
+						<li><div>02</div><span class="pageTag pageTwo">02</span></li>
+						<li><div>03</div><span class="pageTag pageThree">03</span></li>
+						<li><div>04</div><span class="pageTag pageFour">04</span></li>
+						<li><div>05</div><span class="pageTag pageFive">05</span></li>
 					</ul>	
 
 				</div>	
@@ -226,22 +239,22 @@
 						
 						<div class="firstRow row">
 
-							<div class="fstrw one">App Design</div>
-							<div>Graphic Design</div>
-							<div class="fstrw thrd">Motion Design</div>
+							<div class="fstrw one"><img src="checked.svg">App Design</div>
+							<div><img src="checked.svg">Graphic Design</div>
+							<div class="fstrw thrd"><img src="checked.svg">Motion Design</div>
 
 						</div>
 
 						<div class="scndRow row">
 
-							<div class="scnrw one">Ux Design</div>
-							<div class="scnrw two">Webdesign</div>
+							<div class="scnrw one"><img src="checked.svg">Ux Design</div>
+							<div class="scnrw two"><img src="checked.svg">Webdesign</div>
 
 						</div>
 
 						<div class="thrdRow row">
 
-							<div>Marketing</div>
+							<div><img src="checked.svg">Marketing</div>
 
 						</div>
 
@@ -249,7 +262,33 @@
 
 				</div>
 
-				<div id="hireForm"></div>
+				<div id="hireForm">
+				
+					<div id="submitForms">
+
+						<div>
+
+							<label for="name">Name</label>
+							<input autocomplete="off" class="inputForm" type="text" name="name">
+
+						</div>
+						
+						<div>
+
+							<label for="email">Email</label>
+							<input autocomplete="off" id="testing" class="inputForm" type="text" name="email"> 
+
+						</div>
+
+					</div>
+
+					<div id="submit">
+						
+						<button>SEND REQUEST</button>
+					
+					</div>
+
+				</div>
 
 			</div>
 			

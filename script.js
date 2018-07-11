@@ -8,7 +8,8 @@ var wrapper = document.getElementById("Wrapper");
 function burgerMenuClicked(){
 
 
-	wrapper.classList.add("WrapperPerspective");
+	$("#Wrapper").toggleClass("WrapperPerspective");
+	$("#perspectiveUl").toggleClass("perspectiveUlBefore");
 
 }
 
@@ -22,6 +23,27 @@ function hireUsHover(){
 	});
 
 }
+
+function tickMarkHireOptions(e){
+
+
+	$(e.target).toggleClass("hireButtonClicked");
+
+	$(e.target.firstElementChild).toggleClass("ticked");
+
+}
+
+function inputClicked(e){
+
+		if( e.target.value.trim() != "" ){
+
+			return;
+
+		}
+
+		$(e.target.parentElement.firstElementChild).toggleClass("labelActive");
+
+	}
 
 function navListClicked(e){
 
@@ -80,9 +102,12 @@ function navListClicked(e){
 
 	};
 
-	switch ( e.target.id ){ 
+	var target = e.target.classList;
 
-		case "pageOne":
+	switch ( true ){ 
+
+
+		case target.contains("pageOne"):
 
 			var newName = "Home";
 
@@ -92,7 +117,7 @@ function navListClicked(e){
 
 			break;
 
-		case "pageTwo":
+		case target.contains("pageTwo"):
 
 			var newName = "Works";
 
@@ -102,7 +127,7 @@ function navListClicked(e){
 
 			break;
 
-		case "pageThree":
+		case target.contains("pageThree"):
 
 			var newName = "About";
 
@@ -112,7 +137,7 @@ function navListClicked(e){
 
 			break;
 
-		case "pageFour":
+		case target.contains("pageFour"):
 
 			var newName = "Contact";
 
@@ -128,7 +153,7 @@ function navListClicked(e){
 
 			break;
 
-		case "pageFive":
+		case target.contains("pageFive"):
 
 			var newName = "Hire us";
 
@@ -138,14 +163,26 @@ function navListClicked(e){
 
 			break;
 
-	}
-}
+		default:
 
-document.getElementById("burgerMenu").addEventListener("click", burgerMenuClicked);
+			console.log(e.target);
+
+
+
+	};
+};
+
+$("#burgerMenu").on("click", burgerMenuClicked);
 
 $("#navMenuUl > li > span").on("click", navListClicked);
 
+$("#perspectiveUl > li").on("click", navListClicked);
+
 $("#bannerButtonInner").on("mouseover", hireUsHover);
+
+$(".inputForm").on("focus", inputClicked).on("blur", inputClicked);
+
+$(".row > div").on("click", tickMarkHireOptions);
 
 
 
